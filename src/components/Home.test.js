@@ -13,15 +13,23 @@ const mockStore = configureMockStore(middlewares);
 
 configure({adapter: new Adapter()});
 describe('<Home />',()=>{
-  it('calls increment and decrement on buttons', () => {
-    const store = mockStore({
+  let store;
+  beforeEach(() => {
+    store = mockStore({
       counter: { value: 0 }
     });
+  });
+
+  it('calls increment and decrement on buttons', () => {
     const component = mount(
       <Provider store={store}>
         <Home />
       </Provider>
     );
+    const counterValue = component.find('span').text();
+    expect(counterValue).toEqual('0');
     component.find('button').first().simulate('click');
+    component.update();
+    // expect(counterValue).toEqual('1');
   });
 });
