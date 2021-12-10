@@ -18,9 +18,6 @@ module.exports = {
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
   },
   module: {
-    loaders: [
-      {loader: 'style-loader!css-loader', test: /\.css$/},
-    ],
     rules: [
       {
         test: /\.jsx?$/,

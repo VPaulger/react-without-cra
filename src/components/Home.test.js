@@ -1,23 +1,27 @@
 import React from 'react';
-import { shallow, render } from 'enzyme';
-// import configureMockStore from 'redux-mock-store';
-// import thunk from 'redux-thunk';
+import { mount, configure } from 'enzyme';
+import { Provider } from 'react-redux';
+import 'jsdom-global/register';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 import Home from './Home';
 
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
-// const middlewares = [thunk];
-// const mockStore = configureMockStore(middlewares);
-// const store = mockStore({});
-
+configure({adapter: new Adapter()});
 describe('<Home />',()=>{
   it('calls increment and decrement on buttons', () => {
-    const component = shallow(
-      <Home
-      />
+    const store = mockStore({
+      counter: { value: 0 }
+    });
+    const component = mount(
+      <Provider store={store}>
+        <Home />
+      </Provider>
     );
-    console.log(component.debug());
-    // expect(component.state().showAHCWelcome).toBe(true);
+    component.find('button').first().simulate('click');
   });
-
 });

@@ -11,7 +11,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(css|scss)$": "identity-obj-proxy"
     }
   },
   "keywords": [],
@@ -22,18 +22,23 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@reduxjs/toolkit": "^1.6.2",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "enzyme": "^3.11.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
+    "jsdom": "^19.0.0",
+    "jsdom-global": "^3.0.2",
     "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
+    "redux-mock-store": "^1.5.4",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
