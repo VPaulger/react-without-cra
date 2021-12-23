@@ -31,7 +31,15 @@ module.exports = {
       {
         test: /\.png|svg|jpg|gif$/,
         use: ["file-loader"],
-      }, 
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        resolve: {
+          extensions: ['.ts', '.tsx', '.js', '.json'],
+        },
+        use: 'ts-loader',
+      },
     ],
   },
 };
